@@ -10,7 +10,7 @@ const IndexPage = () => (
       <div className='Hero'>
           <div className='HeroGroup'>
               <Seo title="Home" />
-              <h1>Learn To Design And Code React apps</h1>
+              <h1>Learn To <br /> Design And Code React apps</h1>
               <p>bobob guyfyc op[oiu tdxfx</p>
               <Link to="/page-2/">Go to page 2</Link>
           </div>
