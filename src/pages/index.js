@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -32,18 +31,19 @@ const SectionCellGroup = styled.div`
 
 const IndexPage = () => (
   <Layout>
+      <Seo title="Home" />
       <div className="Hero">
           <div className="HeroGroup">
               <h1>Learn to <br />design and code React apps</h1>
               <p>Complete courses about the best tools and design systems. Prototype and build apps with React and Swift.</p>
               <Link to="/page-2/">Watch the video</Link>
               <div className="Logos">
-                  <img src={require('../images/logo-sketch.png').default} width="50" />
-                  <img src={require('../images/logo-figma.png').default} width="50" />
-                  <img src={require('../images/logo-studio.png').default} width="50" />
-                  <img src={require('../images/logo-framer.png').default} width="50" />
-                  <img src={require('../images/logo-react.png').default} width="50" />
-                  <img src={require('../images/logo-swift.png').default} width="50" />
+                  <img src={require('../images/logo-sketch.png').default} alt='jhjh' width="50" />
+                  <img src={require('../images/logo-figma.png').default} alt='jhjh' width="50" />
+                  <img src={require('../images/logo-studio.png').default} alt='jhjh' width="50" />
+                  <img src={require('../images/logo-framer.png').default} alt='jhjh' width="50" />
+                  <img src={require('../images/logo-react.png').default} alt='jhjh' width="50" />
+                  <img src={require('../images/logo-swift.png').default} alt='jhjh' width="50" />
               </div>
               <Wave />
           </div>

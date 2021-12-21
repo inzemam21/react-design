@@ -11,37 +11,52 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import Helmet from 'react-helmet'
+import Footer from '../components/Footer';
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   return (
-    <>
-        <Header />
-        <main>{children}</main>
-        {/*<footer*/}
-        {/*  style={{*/}
-        {/*    marginTop: `2rem`,*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  © {new Date().getFullYear()}, Built with*/}
-        {/*  {` `}*/}
-        {/*  <a href="https://www.gatsbyjs.com">Gatsby</a>*/}
-        {/*</footer>*/}
-    </>
+      <div>
+          <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                  { name: 'description', content: data.site.siteMetadata.description },
+                  { name: 'keywords', content: data.site.siteMetadata.keywords },
+              ]}
+          />
+          <Header />
+          {children()}
+          <Footer data={data}>
+              Backgrounds made in Cinema 4D, iOS app in Swift, site in React. <a href="mailto:support@designcode.io">Email us</a> to ask anything. © 2018
+          </Footer>
+      </div>
+
   )
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+
+export const query = graphql`
+  query SiteTitleQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        keywords
+      }
+    }
+    allContentfulLink(sort: { fields: [createdAt], order: ASC }) {
+      edges {
+        node {
+          title
+          url
+          createdAt
+        }
+      }
+    }
+  }`
 
 export default Layout
